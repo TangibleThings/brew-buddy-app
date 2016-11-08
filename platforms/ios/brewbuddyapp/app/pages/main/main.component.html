@@ -1,0 +1,12 @@
+<ActionBar title="Create Brew"></ActionBar>
+
+<StackLayout>
+  <Label text="Ready for your first brew?" class="header-cta"></Label>
+  
+  <TextField #name hint="Name" autocorrect="true" autocapitalizationType="sentences" [(ngModel)]="brew.name"></TextField>
+  <ListPicker class="picker" #picker [items]="brewStyles" [selectedIndex]="selectedStyle" [(ngModel)]="brew.style" (selectedIndexChange)="selectedIndexChanged(picker)"></ListPicker> 
+  
+  <Button text="New Brew" (tap)="newBrew()" cssClass="primaryButton"></Button>
+
+  <Label [text]="message" class="message" textWrap="true"></Label>
+</StackLayout>

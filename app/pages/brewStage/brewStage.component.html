@@ -1,0 +1,13 @@
+<ActionBar [title]="stageName">
+  <ActionItem text="Cancel" (tap)="cancel()" android.systemIcon="ic_menu_close_clear_cancel" ios.systemIcon="1" ios.position="right"></ActionItem>
+</ActionBar>
+
+<GridLayout columns="auto,auto" rows="auto,auto,auto">
+  <Label row="0" col="0" text="Current Temp"></Label>
+  <Label row="0" col="1" [text]="temp" textWrap="true"></Label>
+
+  <Label row="1" col="0" text="Elapsed Time"></Label>
+  <Label row="1" col="1" [text]="elapsedTime" textWrap="true"></Label>
+
+  <Button row="2" colspan="2" text="Complete Stage" (tap)="completeStage()" cssClass="primaryButton"></Button>
+</GridLayout>

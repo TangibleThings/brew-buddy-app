@@ -1,0 +1,12 @@
+{
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "editor.fontSize": 18,
+     "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/*.js": { "when": "$(basename).ts"}
+    },
+    "editor.tabSize": 2
+}
