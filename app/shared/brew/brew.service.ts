@@ -12,12 +12,44 @@ export class BrewService {
 
   constructor(private http: Http) {}
 
-  create(brew: Brew) {
+  getBrews() {
     let auth = `?auth=${Config.firebaseToken}`;
     let headers = new Headers();
     headers.append("Content-Type", "application/json");
 
-    console.log("URL: " + `${Config.firebaseUrl}brew.json${auth}`);
+    return this.http.get(`${Config.firebaseUrl}brew.json${auth}`, {
+      headers: headers
+    })
+    .map(res => {
+      return res.json()
+    })
+    .map(data => {
+      return data;
+    })
+    .catch(this.handleErrors);
+  }
+
+  getBrew(brewid) {
+    let auth = `?auth=${Config.firebaseToken}`;
+    let headers = new Headers();
+    headers.append("Content-Type", "application/json");
+
+    return this.http.get(`${Config.firebaseUrl}brew/${brewid}.json${auth}`, {
+      headers: headers
+    })
+    .map(res => {
+      return res.json()
+    })
+    .map(data => {
+      return data;
+    })
+    .catch(this.handleErrors);
+  }
+
+  create(brew: Brew) {
+    let auth = `?auth=${Config.firebaseToken}`;
+    let headers = new Headers();
+    headers.append("Content-Type", "application/json");
 
     return this.http.post(`${Config.firebaseUrl}brew.json${auth}`, brew, {
       headers: headers
@@ -27,8 +59,6 @@ export class BrewService {
     })
     .map(data => {
       brew.id = data.name;
-
-      console.log(JSON.stringify(brew));
       return brew;
     })
     .catch(this.handleErrors);

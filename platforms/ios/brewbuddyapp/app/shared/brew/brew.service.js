@@ -9,11 +9,40 @@ var BrewService = (function () {
         this.http = http;
         this.data = "access_token=" + config_1.Config.particleToken;
     }
+    BrewService.prototype.getBrews = function () {
+        var auth = "?auth=" + config_1.Config.firebaseToken;
+        var headers = new http_1.Headers();
+        headers.append("Content-Type", "application/json");
+        return this.http.get(config_1.Config.firebaseUrl + "brew.json" + auth, {
+            headers: headers
+        })
+            .map(function (res) {
+            return res.json();
+        })
+            .map(function (data) {
+            return data;
+        })
+            .catch(this.handleErrors);
+    };
+    BrewService.prototype.getBrew = function (brewid) {
+        var auth = "?auth=" + config_1.Config.firebaseToken;
+        var headers = new http_1.Headers();
+        headers.append("Content-Type", "application/json");
+        return this.http.get(config_1.Config.firebaseUrl + "brew/" + brewid + ".json" + auth, {
+            headers: headers
+        })
+            .map(function (res) {
+            return res.json();
+        })
+            .map(function (data) {
+            return data;
+        })
+            .catch(this.handleErrors);
+    };
     BrewService.prototype.create = function (brew) {
         var auth = "?auth=" + config_1.Config.firebaseToken;
         var headers = new http_1.Headers();
         headers.append("Content-Type", "application/json");
-        console.log("URL: " + (config_1.Config.firebaseUrl + "brew.json" + auth));
         return this.http.post(config_1.Config.firebaseUrl + "brew.json" + auth, brew, {
             headers: headers
         })
@@ -22,7 +51,6 @@ var BrewService = (function () {
         })
             .map(function (data) {
             brew.id = data.name;
-            console.log(JSON.stringify(brew));
             return brew;
         })
             .catch(this.handleErrors);

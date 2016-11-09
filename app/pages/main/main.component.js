@@ -3,69 +3,49 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var brew_service_1 = require("../../shared/brew/brew.service");
 var brew_1 = require("../../shared/brew/brew");
-var brewStyleList = [
-    "Lager",
-    "IPA",
-    "Witbeer",
-    "Double IPA",
-    "Stout",
-    "Imperial Stout",
-    "Sour",
-    "Barleywine"
-];
+var brewData_provider_1 = require("../../shared/providers/brewData.provider");
+var statusEnum_1 = require('../../shared/statusEnum');
 var MainComponent = (function () {
-    function MainComponent(brewService, router) {
+    function MainComponent(brewService, router, brewDataProvider) {
+        var _this = this;
         this.brewService = brewService;
         this.router = router;
-        this.brewStarted = false;
-        this.brew = new brew_1.Brew();
-        this.brew.status = 0;
-        this.brewStyles = [];
-        for (var i = 0; i < brewStyleList.length; i++) {
-            this.brewStyles.push(brewStyleList[i]);
-        }
-    }
-    Object.defineProperty(MainComponent.prototype, "message", {
-        get: function () {
-            if (this.brewStarted) {
-                return "Brew Started... Have Fun!";
+        this.brewDataProvider = brewDataProvider;
+        this.brewList = [];
+        this.brewService.getBrews()
+            .subscribe(function (brewsJson) {
+            for (var key in brewsJson) {
+                if (brewsJson.hasOwnProperty(key)) {
+                    var obj = brewsJson[key];
+                    var brew = new brew_1.Brew();
+                    brew.id = key;
+                    brew.name = obj.name;
+                    brew.status = obj.status;
+                    brew.statusString = statusEnum_1.Status[obj.status];
+                    brew.style = obj.style;
+                    _this.brewList.push(brew);
+                }
             }
-        },
-        enumerable: true,
-        configurable: true
-    });
-    MainComponent.prototype.selectedIndexChanged = function (picker) {
-        console.log('picker selection: ' + this.brewStyles[picker.selectedIndex]);
-        console.log('Brew: ' + JSON.stringify(this.brew));
-    };
-    MainComponent.prototype.newBrew = function () {
-        var _this = this;
-        this.brewService.create(this.brew)
-            .subscribe(function () {
-            _this.brewStarted = true;
-            _this.router.navigate(["/overview"]);
         }, function () {
             alert({
-                message: "An error occurred while starting the brew.",
+                message: "An error occurred while retrieving your brew list",
                 okButtonText: "OK"
             });
         });
+    }
+    MainComponent.prototype.addBrew = function () {
+        this.router.navigate(["/new"]);
     };
-    __decorate([
-        core_1.ViewChild("name"), 
-        __metadata('design:type', core_1.ElementRef)
-    ], MainComponent.prototype, "name", void 0);
-    __decorate([
-        core_1.ViewChild("style"), 
-        __metadata('design:type', core_1.ElementRef)
-    ], MainComponent.prototype, "style", void 0);
+    MainComponent.prototype.brewTap = function (args) {
+        this.router.navigate(['/overview/', this.brewList[args.index].id]);
+    };
     MainComponent = __decorate([
         core_1.Component({
             selector: "my-app",
             templateUrl: "pages/main/main.component.html",
             providers: [brew_service_1.BrewService]
         }), 
-        __metadata('design:paramtypes', [brew_service_1.BrewService, router_1.Router])
+        __metadata('design:paramtypes', [brew_service_1.BrewService, router_1.Router, brewData_provider_1.BrewDataProvider])
     ], MainComponent);
     return MainComponent;
 }());

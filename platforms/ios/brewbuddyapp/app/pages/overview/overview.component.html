@@ -1,6 +1,7 @@
-<ActionBar [title]="brewTitle">
-  <ActionItem text="Cancel" (tap)="cancel()" android.systemIcon="ic_menu_close_clear_cancel" ios.systemIcon="1" ios.position="right"></ActionItem>
+<ActionBar [title]='brew.name ? brew.name : "Loading..."'>
+  <NavigationButton visibility="collapsed"></NavigationButton>
+  <ActionItem text="Home" (tap)="home()" ios.position="left"></ActionItem>
+  <ActionItem text="Start" (tap)="startStage()" android.systemIcon="ic_menu_play" ios.systemIcon="17" ios.position="right"></ActionItem>
 </ActionBar>
 
-<GridLayout>
-</GridLayout>
+<ListView [items]="brewStages"></ListView>

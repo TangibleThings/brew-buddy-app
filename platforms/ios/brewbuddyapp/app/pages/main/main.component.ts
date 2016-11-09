@@ -2,17 +2,8 @@ import { Component, ElementRef, ViewChild } from "@angular/core";
 import { Router } from "@angular/router";
 import { BrewService } from "../../shared/brew/brew.service";
 import { Brew } from "../../shared/brew/brew";
-
-var brewStyleList = [
-  "Lager",
-  "IPA",
-  "Witbeer",
-  "Double IPA",
-  "Stout",
-  "Imperial Stout",
-  "Sour",
-  "Barleywine"
-];
+import { BrewDataProvider } from "../../shared/providers/brewData.provider";
+import { Status } from '../../shared/statusEnum';
 
 @Component({
     selector: "my-app",
@@ -20,49 +11,43 @@ var brewStyleList = [
     providers: [BrewService]
 })
 export class MainComponent {
-    public brewStyles: Array<string>;
-    public brewStarted: boolean = false;
-    brew: Brew;
-
-    @ViewChild("name") name: ElementRef;
-    @ViewChild("style") style: ElementRef;
-
-    constructor(private brewService: BrewService, private router: Router) {
-      this.brew = new Brew();
-      this.brew.status = 0;
-        
-      this.brewStyles = [];
-
-      for (var i = 0; i < brewStyleList.length; i++) {
-        this.brewStyles.push(brewStyleList[i]);
-      }
-    }
+    public brewList: Array<Brew>;
     
-    public get message(): string {
-        if (this.brewStarted) {
-            return "Brew Started... Have Fun!";
-        }
-    }
+    constructor(private brewService: BrewService, private router: Router, private brewDataProvider: BrewDataProvider) {
+      this.brewList = [];
+      
+      this.brewService.getBrews()
+      .subscribe(
+        (brewsJson) => {
+          for (var key in brewsJson) {
+            if (brewsJson.hasOwnProperty(key)) {
+              let obj = brewsJson[key];
+              let brew = new Brew();
 
-    public selectedIndexChanged(picker) {
-        console.log('picker selection: ' + this.brewStyles[picker.selectedIndex]);
-
-        console.log('Brew: ' + JSON.stringify(this.brew));
-    }
-    
-    public newBrew() {
-        this.brewService.create(this.brew)
-        .subscribe(
-          () => {
-            this.brewStarted = true;
-            this.router.navigate(["/overview"]);
-          },
-          () => {
+              brew.id = key;
+              brew.name = obj.name;
+              brew.status = obj.status;
+              brew.statusString = Status[obj.status];
+              brew.style = obj.style;
+              
+              this.brewList.push(brew);
+            }
+          }
+        },
+        () => {
             alert({
-              message: "An error occurred while starting the brew.",
+              message: "An error occurred while retrieving your brew list",
               okButtonText: "OK"
             });
           }
-        );
+      );
+    }
+    
+    public addBrew() {
+      this.router.navigate(["/new"]);
+    }
+
+    public brewTap(args) {
+      this.router.navigate([ '/overview/', this.brewList[args.index].id ]);
     }
 }

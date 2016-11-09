@@ -28,3 +28,11 @@ button {
     text-align: center;
     margin: 0 20;
 } 
+
+.odd {
+    background-color: white;
+}
+
+.even {
+    background-color: lightgrey;
+}

@@ -5,4 +5,5 @@ export class Brew {
   name: string;
   style: string;
   status: Status;
+  statusString: string;
 }

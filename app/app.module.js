@@ -6,6 +6,7 @@ var http_1 = require("nativescript-angular/http");
 var router_1 = require("nativescript-angular/router");
 var app_component_1 = require("./app.component");
 var app_routing_1 = require("./app.routing");
+var brewData_provider_1 = require("./shared/providers/brewData.provider");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -22,6 +23,7 @@ var AppModule = (function () {
                 app_component_1.AppComponent
             ].concat(app_routing_1.navigatableComponents),
             bootstrap: [app_component_1.AppComponent],
+            providers: [brewData_provider_1.BrewDataProvider]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);
