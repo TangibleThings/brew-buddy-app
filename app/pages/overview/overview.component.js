@@ -46,9 +46,9 @@ var OverviewComponent = (function () {
             }
         });
     };
-    OverviewComponent.prototype.newBrew = function () {
+    OverviewComponent.prototype.startStage = function () {
         var _this = this;
-        this.brewService.start()
+        this.brewService.start("Initial Boil", this.brew.id)
             .subscribe(function () {
             _this.stageStarted = true;
             _this.router.navigate(["/brew_stage"]);
@@ -59,53 +59,8 @@ var OverviewComponent = (function () {
             });
         });
     };
-    Object.defineProperty(OverviewComponent.prototype, "stageName", {
-        get: function () {
-            return "Initial Boil";
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(OverviewComponent.prototype, "temp", {
-        get: function () {
-            return "79.4 F";
-        },
-        enumerable: true,
-        configurable: true
-    });
-    ;
-    Object.defineProperty(OverviewComponent.prototype, "elapsedTime", {
-        get: function () {
-            return "00:12";
-        },
-        enumerable: true,
-        configurable: true
-    });
-    OverviewComponent.prototype.completeStage = function () {
-        this.brewService.completeStage()
-            .subscribe(function () {
-            //this.brewStarted = true;
-        }, function () {
-            alert({
-                message: "An error occurred while attemping to complete the stage.",
-                okButtonText: "OK"
-            });
-        });
-    };
     OverviewComponent.prototype.home = function () {
         this.router.navigate([""]);
-    };
-    OverviewComponent.prototype.cancel = function () {
-        var _this = this;
-        this.brewService.stop()
-            .subscribe(function () {
-            _this.router.navigate(["../"]);
-        }, function () {
-            alert({
-                message: "An error occurred while attemping to complete the stage.",
-                okButtonText: "OK"
-            });
-        });
     };
     __decorate([
         core_1.ViewChild("name"), 

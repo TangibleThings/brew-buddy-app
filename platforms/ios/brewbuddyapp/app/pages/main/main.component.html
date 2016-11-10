@@ -5,9 +5,8 @@
 
  <ListView [items]="brewList" (itemTap)="brewTap($event)">
     <template let-item="item" let-i="index" let-odd="odd" let-even="even">
-        <GridLayout class="list-item" [class.odd]="odd" [class.even]="even" rows="auto" columns="auto,auto">
-            <Label row="0" col="0" [text]='item.name + " (" + item.style + ")"'></Label>
-            <Label row="0" col="1" [text]='item.statusString'></Label>
-        </GridLayout>
+        <StackLayout class="list-item" [class.odd]="odd" [class.even]="even">
+            <Label [text]='item.name + " (" + item.style + ")"'></Label>
+        </StackLayout>
     </template>
 </ListView>

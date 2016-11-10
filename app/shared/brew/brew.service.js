@@ -55,10 +55,11 @@ var BrewService = (function () {
         })
             .catch(this.handleErrors);
     };
-    BrewService.prototype.start = function () {
+    BrewService.prototype.start = function (stage, brewId) {
         var headers = new http_1.Headers();
         headers.append("Content-Type", "application/x-www-form-urlencoded");
-        return this.http.post(config_1.Config.particleUrl + "brew", this.data + "&args=start", {
+        console.log("Sent:" + (this.data + "&args=start," + brewId + "," + stage));
+        return this.http.post(config_1.Config.particleUrl + "brew", this.data + "&args=start," + brewId + "," + stage, {
             headers: headers
         })
             .map(function (res) {

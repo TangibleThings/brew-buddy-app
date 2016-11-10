@@ -4,4 +4,10 @@
   <ActionItem text="Start" (tap)="startStage()" android.systemIcon="ic_menu_play" ios.systemIcon="17" ios.position="right"></ActionItem>
 </ActionBar>
 
-<ListView [items]="brewStages"></ListView>
+<ListView [items]="brewStages" (itemTap)="brewStageTap($event)">
+    <template let-item="item" let-i="index" let-odd="odd" let-even="even">
+        <StackLayout class="list-item" [class.odd]="odd" [class.even]="even">
+            <Label [text]='item'></Label>
+        </StackLayout>
+    </template>
+</ListView>

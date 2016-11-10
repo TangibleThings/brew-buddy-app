@@ -29,10 +29,9 @@ button {
     margin: 0 20;
 } 
 
-.odd {
-    background-color: white;
-}
-
-.even {
-    background-color: lightgrey;
+.list-item {
+    font-size: 16;
+    horizontal-align: left;
+    width: 100%;
+    margin: 10;
 }

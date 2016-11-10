@@ -64,17 +64,21 @@ export class BrewService {
     .catch(this.handleErrors);
   }
 
-  start() {
+  start(stage: string, brewId: string) {
     let headers = new Headers();
     headers.append("Content-Type", "application/x-www-form-urlencoded");
     
-    return this.http.post(Config.particleUrl + "brew", `${this.data}&args=start`, {
+    console.log("Sent:" + `${this.data}&args=start,${brewId},${stage}`);
+
+    return this.http.post(Config.particleUrl + "brew", `${this.data}&args=start,${brewId},${stage}`, {
       headers: headers
     })
     .map(res => {
       return res.json()
     })
     .map(data => {
+
+
       return "Brew Started";
     })
     .catch(this.handleErrors);
