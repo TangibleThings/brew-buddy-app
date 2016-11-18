@@ -9,12 +9,12 @@
 		858B842D18CA22B800AB12DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 858B833A18CA111C00AB12DE /* InfoPlist.strings */; };
 		CD45EE7C18DC2D5800FB50C0 /* app in Resources */ = {isa = PBXBuildFile; fileRef = CD45EE7A18DC2D5800FB50C0 /* app */; };
 		CD62955D1BB2678900AE3A93 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD62955C1BB2678900AE3A93 /* main.m */; };
-		CB5BBE85B7794143868307A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70CEC971B02D469EA8F5DAF1 /* Assets.xcassets */; };
-		91CAF90897D94CB29C6E81C2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41AC49F59EC447A3AA502E0F /* GoogleService-Info.plist */; };
-		0C693570AB3A4FF38650A4C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20AB7246BB1047AAB42427F6 /* LaunchScreen.storyboard */; };
-		BD2B7F35560B4430A463CFF8 /* build.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F7B52BACE1C34B0EA1AA4468 /* build.xcconfig */; };
-		0E6CC7CC8E1C4A1A82682304 /* TNSWidgets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62B8FEAE725D48CE8E666408 /* TNSWidgets.framework */; };
-		7B3145982DD747AC85485549 /* TNSWidgets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62B8FEAE725D48CE8E666408 /* TNSWidgets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0838CD12815B4B5F94DF7793 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 456B1D27353246FBA2846AC4 /* Assets.xcassets */; };
+		085C154E0FA847AE970AA850 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BE2446EF39C4FAC88733033 /* GoogleService-Info.plist */; };
+		443C46B755C84411B85C94D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F4A175A41974CD68EE4AF77 /* LaunchScreen.storyboard */; };
+		1E63AEFB88CC414FA20B64BC /* build.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 4F6F2F9BF655471AA548465E /* build.xcconfig */; };
+		5721D1C357644149A0ABFF96 /* TNSWidgets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8640CD2903F94706A245AA79 /* TNSWidgets.framework */; };
+		99CD409813884802BDC85465 /* TNSWidgets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8640CD2903F94706A245AA79 /* TNSWidgets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +24,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				7B3145982DD747AC85485549 /* TNSWidgets.framework in Embed Frameworks */,
+				99CD409813884802BDC85465 /* TNSWidgets.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -42,11 +42,11 @@
 		CDD59A261BB43B5D00EC2671 /* build-debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "build-debug.xcconfig"; sourceTree = "<group>"; };
 		CDD59A271BB43B5D00EC2671 /* build-release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "build-release.xcconfig"; sourceTree = "<group>"; };
 		CDF4743E1BA4855C0087EA85 /* build.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = build.xcconfig; sourceTree = "<group>"; };
-		70CEC971B02D469EA8F5DAF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = unknown; name = Assets.xcassets; path = "brewbuddyapp/Resources/Assets.xcassets"; sourceTree = "<group>"; fileEncoding = 4; };
-		41AC49F59EC447A3AA502E0F /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = unknown; name = "GoogleService-Info.plist"; path = "brewbuddyapp/Resources/GoogleService-Info.plist"; sourceTree = "<group>"; fileEncoding = 4; };
-		20AB7246BB1047AAB42427F6 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = unknown; name = LaunchScreen.storyboard; path = "brewbuddyapp/Resources/LaunchScreen.storyboard"; sourceTree = "<group>"; fileEncoding = 4; };
-		F7B52BACE1C34B0EA1AA4468 /* build.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = unknown; name = build.xcconfig; path = "brewbuddyapp/Resources/build.xcconfig"; sourceTree = "<group>"; fileEncoding = 4; };
-		62B8FEAE725D48CE8E666408 /* TNSWidgets.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TNSWidgets.framework; path = "../../lib/iOS/TNSWidgets.framework"; sourceTree = "<group>"; };
+		456B1D27353246FBA2846AC4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = unknown; name = Assets.xcassets; path = "brewbuddyapp/Resources/Assets.xcassets"; sourceTree = "<group>"; fileEncoding = 4; };
+		9BE2446EF39C4FAC88733033 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = unknown; name = "GoogleService-Info.plist"; path = "brewbuddyapp/Resources/GoogleService-Info.plist"; sourceTree = "<group>"; fileEncoding = 4; };
+		1F4A175A41974CD68EE4AF77 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = unknown; name = LaunchScreen.storyboard; path = "brewbuddyapp/Resources/LaunchScreen.storyboard"; sourceTree = "<group>"; fileEncoding = 4; };
+		4F6F2F9BF655471AA548465E /* build.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = unknown; name = build.xcconfig; path = "brewbuddyapp/Resources/build.xcconfig"; sourceTree = "<group>"; fileEncoding = 4; };
+		8640CD2903F94706A245AA79 /* TNSWidgets.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TNSWidgets.framework; path = "../../lib/iOS/TNSWidgets.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E6CC7CC8E1C4A1A82682304 /* TNSWidgets.framework in Frameworks */,
+				5721D1C357644149A0ABFF96 /* TNSWidgets.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,7 +83,7 @@
 		858B833018CA111C00AB12DE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				62B8FEAE725D48CE8E666408 /* TNSWidgets.framework */,
+				8640CD2903F94706A245AA79 /* TNSWidgets.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -114,10 +114,10 @@
 		E070579D1B39A9D000214BF1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				70CEC971B02D469EA8F5DAF1 /* Assets.xcassets */,
-				41AC49F59EC447A3AA502E0F /* GoogleService-Info.plist */,
-				20AB7246BB1047AAB42427F6 /* LaunchScreen.storyboard */,
-				F7B52BACE1C34B0EA1AA4468 /* build.xcconfig */,
+				456B1D27353246FBA2846AC4 /* Assets.xcassets */,
+				9BE2446EF39C4FAC88733033 /* GoogleService-Info.plist */,
+				1F4A175A41974CD68EE4AF77 /* LaunchScreen.storyboard */,
+				4F6F2F9BF655471AA548465E /* build.xcconfig */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -180,10 +180,10 @@
 			files = (
 				CD45EE7C18DC2D5800FB50C0 /* app in Resources */,
 				858B842D18CA22B800AB12DE /* InfoPlist.strings in Resources */,
-				CB5BBE85B7794143868307A1 /* Assets.xcassets in Resources */,
-				91CAF90897D94CB29C6E81C2 /* GoogleService-Info.plist in Resources */,
-				0C693570AB3A4FF38650A4C8 /* LaunchScreen.storyboard in Resources */,
-				BD2B7F35560B4430A463CFF8 /* build.xcconfig in Resources */,
+				0838CD12815B4B5F94DF7793 /* Assets.xcassets in Resources */,
+				085C154E0FA847AE970AA850 /* GoogleService-Info.plist in Resources */,
+				443C46B755C84411B85C94D0 /* LaunchScreen.storyboard in Resources */,
+				1E63AEFB88CC414FA20B64BC /* build.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

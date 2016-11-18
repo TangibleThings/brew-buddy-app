@@ -54,6 +54,9 @@ var NewBrewComponent = (function () {
             });
         });
     };
+    NewBrewComponent.prototype.cancel = function () {
+        this.router.navigate(["../"]);
+    };
     __decorate([
         core_1.ViewChild("name"), 
         __metadata('design:type', core_1.ElementRef)

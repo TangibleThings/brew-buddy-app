@@ -1,9 +1,9 @@
 ﻿@import '~/css/core.light.css'; 
 
-ActionBar {
+/*ActionBar {
     background-color:  #3C5AFD;
     color: white;
-}
+}*/
 
 .header-cta {
     padding-top: 15;
@@ -13,8 +13,9 @@ button, label, stack-layout, grid-layout {
     horizontal-align: center;    
 }
 
-button {
-    font-size: 28;
+Button {
+    height: auto;
+    font-size: 36;
 }
 
 .title {

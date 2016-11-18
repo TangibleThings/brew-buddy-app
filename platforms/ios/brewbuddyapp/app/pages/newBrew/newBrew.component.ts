@@ -68,4 +68,8 @@ export class NewBrewComponent {
           }
         );
     }
+    
+     public cancel() {
+      this.router.navigate(["../"]);
+    }
 }

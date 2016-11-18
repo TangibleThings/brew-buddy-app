@@ -1,12 +1,21 @@
-<ActionBar title="New Brew"></ActionBar>
+<ActionBar title="New Brew">
+  <NavigationButton visibility="collapsed"></NavigationButton>
+  <ActionItem text="Cancel" (tap)="cancel()" android.systemIcon="ic_menu_close_clear_cancel" ios.systemIcon="1" ios.position="right"></ActionItem>
+</ActionBar>
 
-<StackLayout>
+<StackLayout class="form">
   <Label text="Ready to brew?" class="header-cta"></Label>
   
-  <TextField #name hint="Name" autocorrect="true" autocapitalizationType="sentences" [(ngModel)]="brew.name"></TextField>
-  <ListPicker class="picker" #picker [items]="brewStyles" selectedIndex="2" (selectedIndexChange)="selectedIndexChanged(picker)"></ListPicker> 
-  
-  <Button text="New Brew" (tap)="newBrew()" cssClass="primaryButton"></Button>
+  <StackLayout class="input-field">
+    <TextField #name hint="Name" autocorrect="true" autocapitalizationType="sentences" [(ngModel)]="brew.name"></TextField>
+  </StackLayout>
+  <StackLayout class="input-field">
+    <ListPicker class="picker" #picker [items]="brewStyles" selectedIndex="2" (selectedIndexChange)="selectedIndexChanged(picker)"></ListPicker> 
+  </StackLayout>
+
+  <StackLayout class="input-field">
+    <Button text="Create Brew" (tap)="newBrew()" class="btn btn-primary btn-active"></Button>
+  </StackLayout> 
 
   <Label [text]="message" class="message" textWrap="true"></Label>
 </StackLayout>
