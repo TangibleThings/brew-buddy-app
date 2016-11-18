@@ -1,5 +1,5 @@
-import {Component} from "@angular/core";
-import { Router } from "@angular/router";
+import {Component, OnInit } from "@angular/core";
+import { Router, ActivatedRoute, Params } from "@angular/router";
 import { BrewService } from "../../shared/brew/brew.service";
 
 @Component({
@@ -7,11 +7,21 @@ import { BrewService } from "../../shared/brew/brew.service";
     templateUrl: "pages/brewStage/brewStage.component.html",
     providers: [BrewService]
 })
-export class BrewStageComponent {
-    constructor(private brewService: BrewService, private router: Router) {}
+export class BrewStageComponent implements OnInit {
+    public stage: string = "Initial Boil";
+
+    constructor(private brewService: BrewService, private router: Router, private route: ActivatedRoute) {}
     
+    ngOnInit() {
+      this.route.params.forEach((params: Params) => {
+        console.log("Params: " + JSON.stringify(params));
+
+        this.stage = params['id'];
+      });
+    }
+
     public get stageName(): string {
-      return "Initial Boil"; 
+      return this.stage; 
     }
 
     public get temp(): string {
@@ -45,7 +55,7 @@ export class BrewStageComponent {
             },
             () => {
               alert({
-                message: "An error occurred while attemping to complete the stage.",
+                message: "An error occurred while attemping to cancel the stage.",
                 okButtonText: "OK"
               });
             }

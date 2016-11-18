@@ -9,6 +9,7 @@ exports.routes = [
     { path: "new", component: newBrew_component_1.NewBrewComponent },
     { path: "overview/:id", component: overview_component_1.OverviewComponent },
     { path: "overview", component: overview_component_1.OverviewComponent },
+    { path: "brew_stage/:id", component: brewStage_component_1.BrewStageComponent },
     { path: "brew_stage", component: brewStage_component_1.BrewStageComponent }
 ];
 exports.navigatableComponents = [

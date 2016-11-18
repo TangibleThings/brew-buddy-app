@@ -59,6 +59,9 @@ var OverviewComponent = (function () {
             });
         });
     };
+    OverviewComponent.prototype.brewStageTap = function (args) {
+        this.router.navigate(["/brew_stage", this.brewStages[args.index]]);
+    };
     OverviewComponent.prototype.home = function () {
         this.router.navigate([""]);
     };

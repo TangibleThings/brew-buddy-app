@@ -9,6 +9,7 @@ export const routes = [
   { path: "new", component: NewBrewComponent },
   { path: "overview/:id", component: OverviewComponent },
   { path: "overview", component: OverviewComponent },
+  { path: "brew_stage/:id", component: BrewStageComponent },
   { path: "brew_stage", component: BrewStageComponent}
 ];
 

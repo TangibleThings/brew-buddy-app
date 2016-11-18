@@ -16,6 +16,7 @@ button, label, stack-layout, grid-layout {
 Button {
     height: auto;
     font-size: 36;
+    width: 60%;
 }
 
 .title {
@@ -31,8 +32,16 @@ Button {
 } 
 
 .list-item {
-    font-size: 16;
+    font-size: 18;
+    padding-left: 10;
+    padding-top: 5;
+    padding-bottom: 5;
     horizontal-align: left;
     width: 100%;
     margin: 10;
+}
+
+.input-field {
+    text-align: center;
+    width: 80%;
 }

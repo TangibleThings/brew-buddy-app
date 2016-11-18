@@ -3,13 +3,22 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var brew_service_1 = require("../../shared/brew/brew.service");
 var BrewStageComponent = (function () {
-    function BrewStageComponent(brewService, router) {
+    function BrewStageComponent(brewService, router, route) {
         this.brewService = brewService;
         this.router = router;
+        this.route = route;
+        this.stage = "Initial Boil";
     }
+    BrewStageComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.route.params.forEach(function (params) {
+            console.log("Params: " + JSON.stringify(params));
+            _this.stage = params['id'];
+        });
+    };
     Object.defineProperty(BrewStageComponent.prototype, "stageName", {
         get: function () {
-            return "Initial Boil";
+            return this.stage;
         },
         enumerable: true,
         configurable: true
@@ -47,7 +56,7 @@ var BrewStageComponent = (function () {
             _this.router.navigate(["../"]);
         }, function () {
             alert({
-                message: "An error occurred while attemping to complete the stage.",
+                message: "An error occurred while attemping to cancel the stage.",
                 okButtonText: "OK"
             });
         });
@@ -58,7 +67,7 @@ var BrewStageComponent = (function () {
             templateUrl: "pages/brewStage/brewStage.component.html",
             providers: [brew_service_1.BrewService]
         }), 
-        __metadata('design:paramtypes', [brew_service_1.BrewService, router_1.Router])
+        __metadata('design:paramtypes', [brew_service_1.BrewService, router_1.Router, router_1.ActivatedRoute])
     ], BrewStageComponent);
     return BrewStageComponent;
 }());

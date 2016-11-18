@@ -72,6 +72,10 @@ export class OverviewComponent implements OnInit {
         );
     }
 
+    public brewStageTap(args) {
+      this.router.navigate(["/brew_stage", this.brewStages[args.index]]);
+    }
+
     public home() {
       this.router.navigate([""]);
     }
